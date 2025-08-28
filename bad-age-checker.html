@@ -50,31 +50,35 @@
     </div>
 
 <script>
-    const ageInput = document.getElementById("age");
-    const errorDiv = document.getElementById("error");
+const ageInput = document.getElementById("age");
+const errorDiv = document.getElementById("error");
 
-    ageInput.addEventListener("input", function() {
-        const value = ageInput.value.trim();
+ageInput.addEventListener("input", function() {
+    const value = ageInput.value.trim();
 
-        if (value === "") {
-            errorDiv.textContent = "";
-            return;
-        }
+    if (value === "") {
+        errorDiv.textContent = "";
+        return;
+    }
 
-        const hasDigits = /\d/.test(value);
-        const hasLetters = /[a-zA-Zа-яА-Я]/.test(value);
+    const hasDigits = /\d/.test(value); // Есть ли цифры?
+    const hasLetters = /[a-zA-Zа-яА-Я]/.test(value); // Есть ли буквы?
 
-        if (hasDigits && hasLetters) {
-            errorDiv.textContent = "It looks like the name of an unknown planet. Residents of this planet are not allowed to register.";
-        } else if (!/^\d+$/.test(value)) {
-            errorDiv.textContent = "We love poetry too, but here we need numbers. How many digits do you have?";
-        } else {
-            errorDiv.textContent = "User with this age already exists.";
-        }
-    });
+    if (hasDigits && hasLetters) {
+        // И цифры, и буквы → планета
+        errorDiv.textContent = "It looks like the name of an unknown planet. Residents of this planet are not allowed to register.";
+    } else if (hasLetters) {
+        // Только буквы → поэзия
+        errorDiv.textContent = "We love poetry too, but here we need numbers. How many digits do you have?";
+    } else {
+        // Только цифры → возраст уже занят
+        errorDiv.textContent = "User with this age already exists.";
+    }
+});
 </script>
 </body>
 </html>
+
 
 
 
