@@ -42,6 +42,11 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             cursor: pointer;
+            padding: 5px 0;
+            text-align: center;
+            appearance: none;
+            -webkit-appearance: none;
+            outline: none;
         }
         button {
             padding: 10px 20px;
@@ -68,16 +73,16 @@
 
         <div class="phone-input">
             <span class="plus">+</span>
-            <select id="digits0"></select>
-            <select id="digits1"></select>
-            <select id="digits2"></select>
-            <select id="digits3"></select>
-            <select id="digits4"></select>
-            <select id="digits5"></select>
-            <select id="digits6"></select>
-            <select id="digits7"></select>
-            <select id="digits8"></select>
-            <select id="digits9"></select>
+            <select id="digit0"></select>
+            <select id="digit1"></select>
+            <select id="digit2"></select>
+            <select id="digit3"></select>
+            <select id="digit4"></select>
+            <select id="digit5"></select>
+            <select id="digit6"></select>
+            <select id="digit7"></select>
+            <select id="digit8"></select>
+            <select id="digit9"></select>
         </div>
 
         <button onclick="showNumber()">Show Number</button>
@@ -95,7 +100,7 @@
                 select.appendChild(option);
             }
         });
-
+            select.value = "0";
         function showNumber() {
             let number = '+';
             digits.forEach(id =>{
