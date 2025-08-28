@@ -61,14 +61,13 @@
                 return;
             }
 
-            // Проверка, что введено число
             if (!/^\d+$/.test(value)) {
                 errorDiv.textContent = "We love poetry too, but here we need numbers. How many digits do you have?";
             } else {
-                // Предположим, что если возраст уже существует
                 errorDiv.textContent = "User with this age already exists.";
             }
         });
     </script>
 </body>
 </html>
+
