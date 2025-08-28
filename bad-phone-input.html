@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Phone Number Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 500px;
+        }
+        .phone-input {
+            display: flex;
+            gap: 5px;
+            justify-items: center;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .plus {
+            font-size: 24px;
+            color: #000;
+        }
+        select {
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #0056b3;
+        }
+        .result{
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>    
+<body>
+    <div class="container">
+        <h2>Enter your phone number</h2>
+
+        <div class="phone-input">
+            <span class="plus">+</span>
+            <select id="digits0"></select>
+            <select id="digits1"></select>
+            <select id="digits2"></select>
+            <select id="digits3"></select>
+            <select id="digits4"></select>
+            <select id="digits5"></select>
+            <select id="digits6"></select>
+            <select id="digits7"></select>
+            <select id="digits8"></select>
+            <select id="digits9"></select>
+        </div>
+
+        <button onclick="showNumber()">Show Number</button>
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        const digits = ["digit0", "digit1", "digit2", "digit3", "digit4", "digit5", "digit6", "digit7", "digit8", "digit9"]
+
+        digits.forEach(id=> {
+            const select = document.getElementById(id);
+            for (let i=0;i<=9;i++){
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = i;
+                select.appendChild(option);
+            }
+        });
+
+        function showNumber() {
+            let number = '+';
+            digits.forEach(id =>{
+                const select = document.getElementById(id);
+                number += select.value;
+            });
+            document.getElementById("result").textContent = "Your number: " + number;
+        }
+    </script>
+</body>
+</html>
