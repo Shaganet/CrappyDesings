@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Crappy Designs Museum</title>
     <style>
         body {
             font-family: Comic Sans MS, cursive;
-            background: linear-gradient(135deg, #ffcccc,#ccffff);
+            background: linear-gradient(135deg, #ffcccc, #ccffff);
             color: black;
             text-align: center;
             padding: 50px;
             margin: 0;
         }
-        h1{
+        h1 {
             color: red;
             font-size: 42px;
             text-shadow: 5px 5px 0 yellow;
             margin-bottom: 10px;
         }
-        p.subtitle{
+        p.subtitle {
             font-size: 18px;
             color: #555;
             margin-bottom: 10px;
         }
-        u1{
+        ul {
             list-style: none;
             padding: 0;
             max-width: 600px;
             margin: 0 auto;
         }
-        l1{
+        li {
             margin: 20px 0;
         }
-        .bad-practice{
+        .bad-practice {
             font-size: 20px;
             color: #b30000;
             text-decoration: underline;
+            cursor: pointer;
             transition: font-size 0.2s, color 0.2s;
         }
-        .bad-practice:hover{
+        .bad-practice:hover {
             color: purple;
             font-size: 22px;
         }
@@ -51,15 +53,16 @@
     <ul>
         <li>
             <div class="bad-practice" onclick="openExample()">
-             ❌ Error: your age is already occupied. Try to be born later.
+                ❌ Error: your age is already occupied. Try to be born later.
             </div>
         </li>
     </ul>
-<script>
-    function openExample(){
-        Window.open('bad-age-cheker.html','_blank');
-    }
-</script>
+
+    <script>
+        function openExample() {
+            window.open('bad-age-cheker.html', '_blank');
+        }
+    </script>
 </body>
 </html>
 
