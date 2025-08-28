@@ -49,28 +49,32 @@
         <div id="error" class="error"></div>
     </div>
 
-    <script>
-        const ageInput = document.getElementById("age");
-        const errorDiv = document.getElementById("error");
+<script>
+    const ageInput = document.getElementById("age");
+    const errorDiv = document.getElementById("error");
 
-        ageInput.addEventListener("input", function() {
-            const value = ageInput.value.trim();
+    ageInput.addEventListener("input", function() {
+        const value = ageInput.value.trim();
 
-            if (value === "") {
-                errorDiv.textContent = "";
-                return;
-            }
+        if (value === "") {
+            errorDiv.textContent = "";
+            return;
+        }
 
-            // Проверка: только цифры?
-            if (!/^\d+$/.test(value)) {
-                errorDiv.textContent = "We love poetry too, but here we need numbers. How many digits do you have?";
-            } else {
-                // Это число → показываем стандартную ошибку
-                errorDiv.textContent = "User with this age already exists.";
-            }
-        });
-    </script>
+        const hasDigits = /\d/.test(value);
+        const hasLetters = /[a-zA-Zа-яА-Я]/.test(value);
+
+        if (hasDigits && hasLetters) {
+            errorDiv.textContent = "It looks like the name of an unknown planet. Residents of this planet are not allowed to register.";
+        } else if (!/^\d+$/.test(value)) {
+            errorDiv.textContent = "We love poetry too, but here we need numbers. How many digits do you have?";
+        } else {
+            errorDiv.textContent = "User with this age already exists.";
+        }
+    });
+</script>
 </body>
 </html>
+
 
 
