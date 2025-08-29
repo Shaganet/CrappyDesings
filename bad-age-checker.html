@@ -61,23 +61,21 @@ ageInput.addEventListener("input", function() {
         return;
     }
 
-    const hasDigits = /\d/.test(value); // Есть ли цифры?
-    const hasLetters = /[a-zA-Zа-яА-Я]/.test(value); // Есть ли буквы?
+    const hasDigits = /\d/.test(value);
+    const hasLetters = /[a-zA-Zа-яА-Я]/.test(value);
 
     if (hasDigits && hasLetters) {
-        // И цифры, и буквы → планета
         errorDiv.textContent = "It looks like the name of an unknown planet. Residents of this planet are not allowed to register.";
     } else if (hasLetters) {
-        // Только буквы → поэзия
         errorDiv.textContent = "We love poetry too, but here we need numbers. How many digits do you have?";
     } else {
-        // Только цифры → возраст уже занят
         errorDiv.textContent = "User with this age already exists.";
     }
 });
 </script>
 </body>
 </html>
+
 
 
 
